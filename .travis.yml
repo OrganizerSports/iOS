@@ -1,0 +1,9 @@
+language: objective-c  #1
+osx_image: xcode8.3 #2
+xcode_project: OrganizerSport.xcworkspace #3
+xcode_scheme: OrganizerSport #4
+xcode_sdk: iphonesimulator10.3 #5
+
+script:
+    - pod repo update && rake pod:install
+    - xcodebuild clean build -sdk iphonesimulator -workspace OrganizerSport.xcworkspace -scheme OrganizerSport CODE_SIGNING_REQUIRED=NO
